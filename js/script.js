@@ -1,3 +1,4 @@
+
 var ownAPI = "20bd4a11feefebbd3ac6147ed48f781c";
 var currentCity = "";
 var lastCity = "";
@@ -11,7 +12,7 @@ var handleErrors = (response) => {
 
 
 var getCurrentConditions = (event) => {
-    // Obtain city name from the search box
+  
     let city = $('#search-city').val();
     currentCity= $('#search-city').val();
     
@@ -22,7 +23,7 @@ var getCurrentConditions = (event) => {
         return response.json();
     })
     .then((response) => {
-        // Save city to local storage
+  
         saveCity(city);
         $('#search-error').text("");
    
@@ -32,9 +33,9 @@ var getCurrentConditions = (event) => {
         let currentTimeZoneOffset = response.timezone;
         let currentTimeZoneOffsetHours = currentTimeZoneOffset / 60 / 60;
         let currentMoment = moment.unix(currentTimeUTC).utc().utcOffset(currentTimeZoneOffsetHours);
-        // Render cities list
+ 
         renderCities();
-        // Obtain the 5day forecast for the searched city
+        
         getFiveDayForecast(event);
       
         $('#header-text').text(response.name);
@@ -69,18 +70,20 @@ var getCurrentConditions = (event) => {
         });
     })
 }
+
+
 var getFiveDayForecast = (event) => {
     let city = $('#search-city').val();
-    // Set up URL for API search using forecast search
+
     let queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial" + "&APPID=" + ownAPI;
-    // Fetch from API
+
     fetch(queryURL)
         .then (handleErrors)
         .then((response) => {
             return response.json();
         })
         .then((response) => {
-        // HTML template
+
         let fiveDayForecastHTML = `
         <h2>5-Day Forecast:</h2>
         <div id="fiveDayForecastUl" class="d-inline-flex flex-wrap ">`;
@@ -125,7 +128,7 @@ var saveCity = (newCity) => {
             break;
         }
     }
-    // Save to localStorage if city is new
+
     if (cityExists === false) {
         localStorage.setItem('cities' + localStorage.length, newCity);
     }
@@ -134,7 +137,7 @@ var saveCity = (newCity) => {
 // Render searched cities
 var renderCities = () => {
     $('#city-results').empty();
-    // If localStorage is empty
+    
     if (localStorage.length===0){
         if (lastCity){
             $('#search-city').attr("value", lastCity);
@@ -142,12 +145,12 @@ var renderCities = () => {
             $('#search-city').attr("value", "Austin");
         }
     } else {
-        // Build key of last city written to localStorage
+        
         let lastCityKey="cities"+(localStorage.length-1);
         lastCity=localStorage.getItem(lastCityKey);
-        // Set search input to last city searched
+    
         $('#search-city').attr("value", lastCity);
-        // Append stored cities to page
+  
         for (let i = 0; i < localStorage.length; i++) {
             let city = localStorage.getItem("cities" + i);
             let cityEl;
@@ -160,7 +163,6 @@ var renderCities = () => {
        
             $('#city-results').prepend(cityEl);
         }
-        // Add a "clear" button to page if there is a cities list
         if (localStorage.length>0){
             $('#clear-storage').html($('<a id="clear-storage" href="#">clear</a>'));
         } else {

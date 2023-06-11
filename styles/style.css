@@ -1,0 +1,83 @@
+
+#header{
+    background-size: cover;
+    background-position-y: 40%;
+    color:white;
+    background-color:rgb(175, 235, 226);
+    position:relative !important;
+}
+
+
+#header h1{
+    font-size: 400%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 0px 3px 3px rgba(121, 53, 53, 0.5);
+}
+
+.jumbotron {
+    padding: 1rem;
+    border-radius: 0;
+}
+
+#search-city{
+    width:50%;
+}
+
+#search-button-icon{
+    width:20px;
+    display:inline-block;
+}
+
+#current-weather {
+    padding-left: 15px;
+}
+
+#clear-storage{
+    color:rgb(66, 22, 120);
+    text-decoration: none;
+    font-size:.75em;
+    margin: .5em 0em 0em .5em;
+}
+
+.weather-card{
+    width: 9rem;
+    background-color: #c37bb4;
+    color: white;
+    text-align: center;
+}
+
+.uv-favorable{
+    background-color: green;
+    border-radius: 5px;
+    color: white;
+}
+
+.uv-moderate{
+    background-color: rgb(202, 221, 155);
+    border-radius: 5px;
+    color: white;
+}
+
+.uv-severe{
+    background-color: rgb(91, 8, 8);
+    border-radius: 5px;
+    color: white;
+}
+
+
+@media only screen and (max-width: 992px) {
+    #search-city{
+        width:100%;
+    }
+    #search-button{
+        width:100%;
+    }
+}
+@media only screen and (max-width: 575px) {
+
+    #fiveDayForecastUl{
+        justify-content: center;
+    }
+}
