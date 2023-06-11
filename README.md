@@ -1,5 +1,6 @@
 # cityweather
 # 06 Server-Side APIs: Weatherweek Dashboard
+<img width="1190" alt="Screenshot 2023-06-11 at 4 29 21 PM" src="https://github.com/hirasoomroo/cityweather/assets/120343929/6b15e57a-7ea6-4a99-8e4a-500564e33e03">
 
 ## Your Task
 In order to create a weather dashboard, we must display the data for the week depending on the search of the city. In this task, we must use third party API's to render that data. With using javascript, HTML and some styling, this weather dashboard was created.
